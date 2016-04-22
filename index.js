@@ -4,9 +4,10 @@ module.exports = {
     html: {
       "body:start": function(current) {
         var fs = require("fs");
+        var path = require("path");
+        var filePath = current.basePath + "/HEADER.html";
         console.log("### ADD-HEADER ###")
-        console.dir(current);
-        var filePath = current.basePath + "/HEADER.md";
+        console.log(path.resolve(filePath));
         try {
             return fs.readFileSync(filePath);
         } catch(err) {
