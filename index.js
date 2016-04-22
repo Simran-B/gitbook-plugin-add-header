@@ -3,7 +3,15 @@ module.exports = {
     assets: ".",
     html: {
       "body:start": function(current) {
-        return require("fs").readFileSync("./HEADER.md")
+        var fs = require("fs");
+        console.log("### ADD-HEADER ###")
+        console.dir(current);
+        var filePath = current.basePath + "/HEADER.md";
+        try {
+            return fs.readFileSync(filePath);
+        } catch(err) {
+            // pass
+        }
       }
     }
   }
