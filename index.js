@@ -5,7 +5,9 @@ module.exports = {
       "body:start": function(current) {
         var fs = require("fs");
         var path = require("path");
-        var filePath = current.basePath + "/HEADER.html";
+        var BASE_PATH = current.basePath === "." ? "" : current.basePath + "/";
+        BASE_PATH.replace("../", "");
+        var filePath = BASE_PATH + "HEADER.html";
         console.log("### ADD-HEADER ###")
         console.log(path.resolve(filePath));
         try {
