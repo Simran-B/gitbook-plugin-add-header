@@ -11,7 +11,6 @@ module.exports = {
         
         // Try to access global var
         console.log("### GLOBAL ###");
-        console.dir(book);
         console.dir(this.book);
         
         try {
