@@ -9,8 +9,10 @@ module.exports = {
         // Gitbook code needs modification to expose current.book
         var filePath = path.join(current.book.root, "HEADER.html");
         
-        // is this even defined?
-        console.dir(output);
+        // Try to access global var
+        console.log("### GLOBAL ###");
+        console.dir(book);
+        console.dir(this.book);
         
         try {
             return fs.readFileSync(filePath);
