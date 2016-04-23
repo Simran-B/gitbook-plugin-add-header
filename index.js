@@ -2,25 +2,16 @@ module.exports = {
   website: {
     assets: ".",
     html: {
-      "body:start": function(current) {
+      "body:start": function(current, output) {
         var fs = require("fs");
         var path = require("path");
         
-        var BASE_PATH = current.basePath === "." ? "" : current.basePath + "/";
-        BASE_PATH.replace("../", "");
+        // Gitbook code needs modification to expose current.book
+        var filePath = path.join(current.book.root, "HEADER.html");
         
-        var filePath = BASE_PATH + "HEADER.html";
+        // is this even defined?
+        console.dir(output);
         
-        var info = {
-            basePath: current.basePath,
-            BASE_PATH: BASE_PATH,
-            resolvedBasePath: path.resolve(current.basePath),
-            staticBase: current.staticBase,
-            dirname: __dirname,
-            filename: __filename,
-            current: current
-        };
-        console.dir(info);
         try {
             return fs.readFileSync(filePath);
         } catch(err) {
