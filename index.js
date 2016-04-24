@@ -6,12 +6,7 @@ module.exports = {
         var fs = require("fs");
         var path = require("path");
         
-        // Gitbook code needs modification to expose current.book
-        var filePath = path.join(current.book.root, "HEADER.html");
-        
-        // Try to access global var
-        console.log("### GLOBAL ###");
-        console.dir(this.book);
+        var filePath = path.join(this.book.root, "HEADER.html");
         
         try {
             return fs.readFileSync(filePath);
