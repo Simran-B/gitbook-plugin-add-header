@@ -7,7 +7,7 @@ module.exports = {
     html: {
       "body:start": function(current) {
         
-        var rootPath = current.basePath === "." ? ".." : "../" + current.basePath;
+        var rootPath = current.basePath === "." ? ".." : "../../" + current.basePath;
         console.log("rootPath:", rootPath);
         var filePath = path.join(this.book.root, "HEADER.html");
         
