@@ -11,8 +11,8 @@ module.exports = {
         var filePath = path.join(this.book.root, "HEADER.html");
         
         try {
-            return fs.readFileSync(filePath, {encoding: "utf-8"})
-                replace(/BASE_PATH/g, BASE_PATH);
+            var content = fs.readFileSync(filePath, {encoding: "utf-8"});
+            return content.replace(/BASE_PATH/g, BASE_PATH);
         } catch(err) {
             // if there's no file to include, just continue
         }
