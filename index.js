@@ -7,8 +7,13 @@ module.exports = {
     html: {
       "body:start": function(current) {
         
-        // WARNING: does not work if served via web-server (gitbook will always use ..)
-        var rootPath = current.basePath === "." ? ".." : "../" + current.basePath;
+        var rootPath;
+        if (this.options.pluginsConfig && this.options.pluginsConfig["add-header"] && this.options.pluginsConfig["add-header"].BASE_PATH) {
+            rootPath = this.options.pluginsConfig["add-header"].BASE_PATH;
+        } else {
+            // WARNING: does not work if served via web-server (gitbook will always use ..)
+            rootPath = current.basePath === "." ? ".." : "../" + current.basePath;
+        }
         var filePath = path.join(this.book.root, "HEADER.html");
         
         try {
