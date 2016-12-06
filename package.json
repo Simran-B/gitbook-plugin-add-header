@@ -2,7 +2,7 @@
   "name": "gitbook-plugin-add-header",
   "description": "Add header to every page for website targets",
   "main": "index.js",
-  "version": "0.0.17",
+  "version": "0.0.18",
   "engines": {
     "gitbook": ">=3.0.0"
   },
