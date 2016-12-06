@@ -8,8 +8,8 @@ module.exports = {
       "body:start": function(current) {
         
         var rootPath;
-        if (this.options.pluginsConfig && this.options.pluginsConfig["add-header"] && this.options.pluginsConfig["add-header"].BASE_PATH) {
-            rootPath = this.options.pluginsConfig["add-header"].BASE_PATH;
+        if (this.config.get('pluginsConfig["add-header"].BASE_PATH')) {
+            rootPath = this.config.get('pluginsConfig["add-header"].BASE_PATH');
         } else {
             // WARNING: does not work if served via web-server (gitbook will always use ..)
             rootPath = current.basePath === "." ? ".." : "../" + current.basePath;
@@ -19,8 +19,8 @@ module.exports = {
         try {
             var content = fs.readFileSync(filePath, {encoding: "utf-8"});
             return content.replace(/BASE_PATH/g, rootPath);
-        } catch(err) {
             // if there's no file to include, just continue
+        } catch(err) {
         }
       }
     }
